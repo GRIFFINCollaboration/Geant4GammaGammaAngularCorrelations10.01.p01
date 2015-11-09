@@ -435,7 +435,7 @@ void G4NuclearLevel::FillHigherLevelEnergy(G4int gamma_i, G4int hlevel_i, G4doub
 }
 
 void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4double hlevel_energy, G4double lowerGammaEnergy, G4double higherGammaEnergy, G4double ji, G4double jo, G4double jf, G4int L1, G4int L1p, G4int L2, G4int L2p, G4double delta1, G4double delta2, G4bool boolGoodLevelToOutputToScreen) {
-  G4double a2, a4, a6, a8, a10, P2, P4, wTheta, thetaRad, thisMaxWTheta;
+  G4double a2, a4, a6, a8, a10, P2, P4, P6, P8, P10, wTheta, thetaRad, thisMaxWTheta;
 
   // Save higher level energy
   FillHigherLevelEnergy(gamma_i, hlevel_i, hlevel_energy);
@@ -478,7 +478,10 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
     thetaRad = (i/1000)*(M_PI/180.0);
     P2 = LegendreP(2,cos(thetaRad));
     P4 = LegendreP(4,cos(thetaRad));
-    wTheta = (1+a2*P2+a4*P4)*std::sin(thetaRad);
+    P6 = LegendreP(6,cos(thetaRad));
+    P8 = LegendreP(8,cos(thetaRad));
+    P10 = LegendreP(10,cos(thetaRad));
+    wTheta = (1+a2*P2+a4*P4+a6*P6+a8*P8+a10*P10)*std::sin(thetaRad);
     if (wTheta > thisMaxWTheta)
       thisMaxWTheta = wTheta;
   }
