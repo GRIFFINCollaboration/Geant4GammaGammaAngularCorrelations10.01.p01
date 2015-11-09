@@ -1,0 +1,29 @@
+Gamma-ray multipolarity input for gamma-gamma correlation simulations
+-Evan Rand, July 2014
+
+Each line contains 5 columns:
+
+1) Energy of the starting nuclear level (keV)
+   ********************************************************
+   *** Identical to column 1 of PhotonEvaporation input ***
+   *** See PhotonEvaporation-readme 			***
+   ********************************************************	
+
+2) Energy of the transition (keV)
+   This is the energy difference between the initial and the final level.
+   ********************************************************
+   *** Identical to column 2 of PhotonEvaporation input ***
+   *** See PhotonEvaporation-readme 			***
+   ********************************************************
+
+3) L1 Multipolarity.
+   This is the multipolarity of the gamma for pure (and mixed) transitions. For a pure E2 transition, input 2 into this column. 
+   For a pure M3 transition, input 3 into this column. If the transition is mixed, eg. M1+E2, input 1 into this column and 2 into the next column.
+
+4) L2 Multipolarity.
+   This is the multipolarity of the gamma for mixed transitions. This column is used only for mixed transitions, eg. M1+E2. 
+   Input larger multipolarity into this column, eg. for M1+E2 transitions this column is 2.
+
+5) Mixing Ratio
+   Delta is this mixing ratio for mixed transitions. For pure transitions this column is 0. 
+   Delta is defined as delta = <L2/L1>
