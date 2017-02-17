@@ -158,6 +158,31 @@ void G4NuclearLevelStore::SetGroundStateSpinAngularMomentum(G4ThreeVector value)
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+// Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+G4double a2;
+G4double a4;
+G4double a6;
+G4bool boolIncludeACcoeffs;
+
+void G4NuclearLevelStore::SetAngularCorrelationCoefficients(G4ThreeVector value)
+{
+    G4double A2 = value.x();
+    G4double A4 = value.y();
+    G4double A6 = value.z();
+    a2 = A2;
+    a4 = A4;
+    a6 = A6;
+    boolIncludeACcoeffs = true;
+}
+
+G4bool setACcoeffs() {return boolIncludeACcoeffs;};
+G4double SetA2() {return a2;};
+G4double SetA4() {return a4;};
+G4double SetA6() {return a6;};
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 G4String
 G4NuclearLevelStore::GenerateFileName(G4int Z, G4int A) const
 {

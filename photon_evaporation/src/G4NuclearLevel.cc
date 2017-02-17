@@ -63,6 +63,9 @@
 #include "globals.hh"
 #include "G4SystemOfUnits.hh"
 
+#include "G4NuclearLevelStore.hh" // Will Ashfield 
+
+
 G4int G4NuclearLevel::Increment(G4int aF)
 {
   static G4ThreadLocal G4int instanceCount = 0;
@@ -454,6 +457,18 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
   a6 = B(6,Jo,Ji,L1,L1p,delta1)*A(6,Jf,Jo,L2,L2p,delta2);
   a8 = B(8,Jo,Ji,L1,L1p,delta1)*A(8,Jf,Jo,L2,L2p,delta2);
   a10= B(10,Jo,Ji,L1,L1p,delta1)*A(10,Jf,Jo,L2,L2p,delta2);
+
+
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+  if(G4NuclearLevelStore::GetInstance()->setACcoeffs()){
+    a2 = G4NuclearLevelStore::GetInstance()->SetA2();  
+    a4 = G4NuclearLevelStore::GetInstance()->SetA4(); 
+    a6 = G4NuclearLevelStore::GetInstance()->SetA6();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  
 
   if(boolGoodLevelToOutputToScreen) {
     G4cout << "---------- gamma-gamma angular coefficients ----------" << G4endl;

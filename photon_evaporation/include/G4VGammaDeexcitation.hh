@@ -101,7 +101,7 @@ protected:
   G4VGammaTransition* _transition;
   G4int _verbose;
   G4double _tolerance;
-  G4double _timeLimit;
+  G4double _timeLimit; // Will Ashfield 
 
 private:
 

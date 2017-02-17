@@ -289,6 +289,7 @@ G4double G4DiscreteGammaTransition::GetThetaFromWTheta(G4double higherLevelEnerg
     }
 
     foundTheta = false;
+    if (verbose > 1) G4cout <<"Calculating theta, a2=" <<_a2[hlevelindex] <<G4endl;
     while (!foundTheta) {
       theta = M_PI*G4UniformRand();
       normy = G4UniformRand()*_maxWTheta[hlevelindex];

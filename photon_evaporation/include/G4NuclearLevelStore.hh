@@ -87,6 +87,16 @@ public:
   inline void          SetPolarizationVector(G4ThreeVector vector) {polarizationVector = vector;};
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  void SetAngularCorrelationCoefficients(G4ThreeVector value);
+  G4bool setACcoeffs() {return boolIncludeACcoeffs;};
+  G4double SetA2() {return a2;};
+  G4double SetA4() {return a4;};
+  G4double SetA6() {return a6;};
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 private:
 
   G4int GenerateKey(G4int Z, G4int A) const { return Z*1000+A; }
@@ -112,6 +122,21 @@ private:
   std::map<G4int, G4double> groundStateSpinAngularMomentum;
   std::map<G4int, G4String> theUserDataFilesMultipole;
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  G4double a2;
+  G4double a4;
+  G4double a6;
+  G4bool boolIncludeACcoeffs;
+  //std::map<G4int, G4double> a2;
+  //std::map<G4int, G4double> a4;
+  //std::map<G4int, G4double> a6;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
 
   static G4ThreadLocal G4NuclearLevelStore* theInstance;
 #ifdef G4MULTITHREADED
