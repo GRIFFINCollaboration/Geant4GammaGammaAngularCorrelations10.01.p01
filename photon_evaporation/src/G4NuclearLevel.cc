@@ -483,6 +483,9 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
     G4cout << "a6  = " << a6 << G4endl;
     G4cout << "a8  = " << a8 << G4endl;
     G4cout << "a10 = " << a10 << G4endl;
+    if(G4NuclearLevelStore::GetInstance()->setACcoeffs()){
+    G4cout << "PLEASE NOTE: THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;
+    }
     G4cout << "------------------------------------------------------" << G4endl;
   }
   _a2[gamma_i].push_back(a2);
