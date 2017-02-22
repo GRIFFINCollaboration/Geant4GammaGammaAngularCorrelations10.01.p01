@@ -465,6 +465,8 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
     a2 = G4NuclearLevelStore::GetInstance()->SetA2();  
     a4 = G4NuclearLevelStore::GetInstance()->SetA4(); 
     a6 = G4NuclearLevelStore::GetInstance()->SetA6();
+    a8 = 0;
+    a10 = 0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -475,16 +477,22 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
     G4cout << "highest level in cascade is " << hlevel_energy/keV << " keV" << G4endl;
     G4cout << "first gamma in cascade is " << higherGammaEnergy/keV << " keV" << G4endl;
     G4cout << "second gamma in cascade is " << lowerGammaEnergy/keV << " keV" << G4endl;
+    if(G4NuclearLevelStore::GetInstance()->setACcoeffs()){
+    G4cout << "THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;  
+    G4cout << "The simulation will now overwrite the calculated a2 and a4 coefficients" << G4endl;  
+    G4cout << "This process will overwrite the coefficients for any cascade" << G4endl;  
+    } else{
     G4cout << "ji = " << ji << " --> jo = " << jo <<  " --> jf = " << jf << G4endl;
     G4cout << "L1 = " << L1 << ", L1p = " << L1p <<  " - " << "L2 = " << L2 << ", L2p = " << L2p << G4endl;
     G4cout << "delta1 = " << delta1 << " - " << "delta2 = " << delta2 << G4endl;
+    }
     G4cout << "a2  = " << a2 << G4endl;
     G4cout << "a4  = " << a4 << G4endl;
     G4cout << "a6  = " << a6 << G4endl;
     G4cout << "a8  = " << a8 << G4endl;
     G4cout << "a10 = " << a10 << G4endl;
     if(G4NuclearLevelStore::GetInstance()->setACcoeffs()){
-    G4cout << "PLEASE NOTE: THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;
+    G4cout << "REMINDER: THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;
     }
     G4cout << "------------------------------------------------------" << G4endl;
   }
