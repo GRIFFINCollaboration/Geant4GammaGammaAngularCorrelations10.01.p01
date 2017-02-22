@@ -129,9 +129,6 @@ private:
   G4double a4;
   G4double a6;
   G4bool boolIncludeACcoeffs;
-  //std::map<G4int, G4double> a2;
-  //std::map<G4int, G4double> a4;
-  //std::map<G4int, G4double> a6;
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
