@@ -90,10 +90,10 @@ public:
 
   // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   void SetAngularCorrelationCoefficients(G4ThreeVector value);
-  G4bool setACcoeffs() {return boolIncludeACcoeffs;};
-  G4double SetA2() {return a2;};
-  G4double SetA4() {return a4;};
-  G4double SetA6() {return a6;};
+  G4bool manualACcoeffs() {return boolIncludeACcoeffs;};
+  G4double GetA2() {return a2;};
+  G4double GetA4() {return a4;};
+  G4double GetA6() {return a6;};
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

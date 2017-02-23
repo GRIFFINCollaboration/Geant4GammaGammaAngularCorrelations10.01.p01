@@ -461,10 +461,10 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
 
   // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   
-  if(G4NuclearLevelStore::GetInstance()->setACcoeffs()){
-    a2 = G4NuclearLevelStore::GetInstance()->SetA2();  
-    a4 = G4NuclearLevelStore::GetInstance()->SetA4(); 
-    a6 = G4NuclearLevelStore::GetInstance()->SetA6();
+  if(G4NuclearLevelStore::GetInstance()->manualACcoeffs()){
+    a2 = G4NuclearLevelStore::GetInstance()->GetA2();  
+    a4 = G4NuclearLevelStore::GetInstance()->GetA4(); 
+    a6 = G4NuclearLevelStore::GetInstance()->GetA6();
     a8 = 0;
     a10 = 0;
   }

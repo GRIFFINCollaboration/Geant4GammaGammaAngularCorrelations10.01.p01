@@ -246,7 +246,7 @@ G4RadioactiveDecaymessenger::G4RadioactiveDecaymessenger
   
   userAngCorCoefficientCmd = new G4UIcmdWith3Vector("/grdm/setAngularCorrelationCoefficients",this);
   userAngCorCoefficientCmd->SetGuidance("Set the gamma-gamma angular correlation coefficients");
-  userAngCorCoefficientCmd->SetParameterName("a2","a4","a6",true);
+  userAngCorCoefficientCmd->SetParameterName("a2","a4","a6",false);
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
