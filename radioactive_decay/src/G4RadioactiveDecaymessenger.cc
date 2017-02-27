@@ -239,6 +239,16 @@ G4RadioactiveDecaymessenger::G4RadioactiveDecaymessenger
   userMultipoleGSCmd->SetGuidance("Set the ground state spin angular momentum");
   userMultipoleGSCmd->SetParameterName("Z","A","Ang",false);
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+
+  // Will Ashfield  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // Manually set the a2 and a4 gamma-gamma angular correlation coefficients
+  
+  userAngCorCoefficientCmd = new G4UIcmdWith3Vector("/grdm/setAngularCorrelationCoefficients",this);
+  userAngCorCoefficientCmd->SetGuidance("Set the gamma-gamma angular correlation coefficients");
+  userAngCorCoefficientCmd->SetParameterName("a2","a4","a6",false);
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -265,6 +275,7 @@ G4RadioactiveDecaymessenger::~G4RadioactiveDecaymessenger ()
   delete userEvaporationDataCmd;
   delete userMultipoleDataCmd; // Evan Rand
   delete userMultipoleGSCmd; // Evan Rand
+  delete userAngCorCoefficientCmd; // Will Ashfield  
   delete colldirCmd;
   delete collangleCmd;
 
@@ -329,7 +340,10 @@ void G4RadioactiveDecaymessenger::SetNewValue (G4UIcommand *command, G4String ne
       G4NuclearLevelStore::GetInstance()->AddUserMultipoleDataFile(Z,A,file_name);
   }
   else if (command ==userMultipoleGSCmd){ // Evan Rand
-      G4NuclearLevelStore::GetInstance()->SetGroundStateSpinAngularMomentum(userMultipoleGSCmd->GetNew3VectorValue(newValues));
+      G4NuclearLevelStore::GetInstance()->SetGroundStateSpinAngularMomentum(userMultipoleGSCmd->GetNew3VectorValue(newValues));   
+  }
+  else if (command ==userAngCorCoefficientCmd){ // Will Ashfield 
+      G4NuclearLevelStore::GetInstance()->SetAngularCorrelationCoefficients(userAngCorCoefficientCmd->GetNew3VectorValue(newValues));
   }
   else if (command==colldirCmd) {theRadioactiveDecayContainer->
       SetDecayDirection(colldirCmd->GetNew3VectorValue(newValues));}

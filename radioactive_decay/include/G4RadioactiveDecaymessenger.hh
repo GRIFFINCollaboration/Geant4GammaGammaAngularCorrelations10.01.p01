@@ -119,6 +119,12 @@ public: //with description
   G4UIcmdWith3Vector       		 *userMultipoleGSCmd;
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  G4UIcmdWith3Vector   *userAngCorCoefficientCmd;
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
   G4UIcmdWith3Vector             *colldirCmd;
   G4UIcmdWithADoubleAndUnit      *collangleCmd;
 

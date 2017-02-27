@@ -63,6 +63,9 @@
 #include "globals.hh"
 #include "G4SystemOfUnits.hh"
 
+#include "G4NuclearLevelStore.hh" // Will Ashfield 
+
+
 G4int G4NuclearLevel::Increment(G4int aF)
 {
   static G4ThreadLocal G4int instanceCount = 0;
@@ -455,19 +458,42 @@ void G4NuclearLevel::GenerateWThetaParameters(G4int gamma_i, G4int hlevel_i, G4d
   a8 = B(8,Jo,Ji,L1,L1p,delta1)*A(8,Jf,Jo,L2,L2p,delta2);
   a10= B(10,Jo,Ji,L1,L1p,delta1)*A(10,Jf,Jo,L2,L2p,delta2);
 
+
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+  if(G4NuclearLevelStore::GetInstance()->manualACcoeffs()){
+    a2 = G4NuclearLevelStore::GetInstance()->GetA2();  
+    a4 = G4NuclearLevelStore::GetInstance()->GetA4(); 
+    a6 = G4NuclearLevelStore::GetInstance()->GetA6();
+    a8 = 0;
+    a10 = 0;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  
+
   if(boolGoodLevelToOutputToScreen) {
     G4cout << "---------- gamma-gamma angular coefficients ----------" << G4endl;
     G4cout << "highest level in cascade is " << hlevel_energy/keV << " keV" << G4endl;
     G4cout << "first gamma in cascade is " << higherGammaEnergy/keV << " keV" << G4endl;
     G4cout << "second gamma in cascade is " << lowerGammaEnergy/keV << " keV" << G4endl;
+    if(G4NuclearLevelStore::GetInstance()->manualACcoeffs()){
+    G4cout << "THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;  
+    G4cout << "The simulation will now overwrite the calculated a2 and a4 coefficients" << G4endl;  
+    G4cout << "This process will overwrite the coefficients for any cascade" << G4endl;  
+    } else{
     G4cout << "ji = " << ji << " --> jo = " << jo <<  " --> jf = " << jf << G4endl;
     G4cout << "L1 = " << L1 << ", L1p = " << L1p <<  " - " << "L2 = " << L2 << ", L2p = " << L2p << G4endl;
     G4cout << "delta1 = " << delta1 << " - " << "delta2 = " << delta2 << G4endl;
+    }
     G4cout << "a2  = " << a2 << G4endl;
     G4cout << "a4  = " << a4 << G4endl;
     G4cout << "a6  = " << a6 << G4endl;
     G4cout << "a8  = " << a8 << G4endl;
     G4cout << "a10 = " << a10 << G4endl;
+    if(G4NuclearLevelStore::GetInstance()->manualACcoeffs()){
+    G4cout << "REMINDER: THE ANGULAR COEFFICIENTS HAVE BEEN MANUALLY SET" << G4endl;
+    }
     G4cout << "------------------------------------------------------" << G4endl;
   }
   _a2[gamma_i].push_back(a2);
