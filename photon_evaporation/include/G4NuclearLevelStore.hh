@@ -123,16 +123,6 @@ private:
   std::map<G4int, G4String> theUserDataFilesMultipole;
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-  G4double a2;
-  G4double a4;
-  G4double a6;
-  G4bool boolIncludeACcoeffs;
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 
 
   static G4ThreadLocal G4NuclearLevelStore* theInstance;

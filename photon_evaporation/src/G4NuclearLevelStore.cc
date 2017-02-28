@@ -160,6 +160,11 @@ void G4NuclearLevelStore::SetGroundStateSpinAngularMomentum(G4ThreeVector value)
 
 // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+G4double a2;
+G4double a4;
+G4double a6;
+G4bool boolIncludeACcoeffs;
+
 void G4NuclearLevelStore::SetAngularCorrelationCoefficients(G4ThreeVector value)
 {
     G4double A2 = value.x();
@@ -170,6 +175,7 @@ void G4NuclearLevelStore::SetAngularCorrelationCoefficients(G4ThreeVector value)
     a6 = A6;
     boolIncludeACcoeffs = true;
 }
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 G4String
