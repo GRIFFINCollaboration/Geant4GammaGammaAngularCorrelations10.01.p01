@@ -91,9 +91,9 @@ public:
   // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   void SetAngularCorrelationCoefficients(G4ThreeVector value);
   G4bool manualACcoeffs() {return boolIncludeACcoeffs;};
-  G4double GetA2() {return a2;};
-  G4double GetA4() {return a4;};
-  G4double GetA6() {return a6;};
+  G4double GetA2() {return A2;};
+  G4double GetA4() {return A4;};
+  G4double GetA6() {return A6;};
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -121,6 +121,14 @@ private:
   std::map<G4int, G4bool> boolGroundStateSpinAngularMomentum;
   std::map<G4int, G4double> groundStateSpinAngularMomentum;
   std::map<G4int, G4String> theUserDataFilesMultipole;
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+
+  // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  G4double A2;
+  G4double A4;
+  G4double A6;
+  G4bool boolIncludeACcoeffs;
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
