@@ -63,6 +63,9 @@ G4NuclearLevelStore::G4NuclearLevelStore()
 {
   userFiles = false;
   deconstructMultipole = false; // Evan Rand
+  boolIncludeACcoeffs = false; // Will Ashfield 
+
+
   char* env = getenv("G4LEVELGAMMADATA");
   if (env == 0)
     {
@@ -155,11 +158,9 @@ void G4NuclearLevelStore::SetGroundStateSpinAngularMomentum(G4ThreeVector value)
     groundStateSpinAngularMomentum[key] = GS;
     boolGroundStateSpinAngularMomentum[key] = true;
 }
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Will Ashfield - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 
 void G4NuclearLevelStore::SetAngularCorrelationCoefficients(G4ThreeVector value)
 {
