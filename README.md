@@ -1,3 +1,10 @@
+Release History:
+
+version | DOI
+--------|------
+1.0     | [![DOI](https://zenodo.org/badge/45857117.svg)](https://zenodo.org/badge/latestdoi/45857117)
+
+
 Geant4GammaGammaAngularCorrelations10.01
 ===================================
 
